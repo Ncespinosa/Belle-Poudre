@@ -1,345 +1,303 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Our Collection | Belle Poudre</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Powders | Belle Poudre</title>
+  <style>
+    :root {
+      --pink: #f7dce5;
+      --blush: #fff1f5;
+      --rose: #bd8297;
+      --deep: #805565;
+      --ink: #51434a;
+    }
 
-<style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--ink);
+      background: #fffdfd;
+      line-height: 1.7;
+    }
 
-body {
-  background: #fff;
-  color: #59444e;
-  font-family: Georgia, serif;
-}
+    a { color: inherit; text-decoration: none; }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255,255,255,.96);
+      border-bottom: 1px solid #f3e3e9;
+      padding: 15px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
 
-nav {
-  padding: 22px 8%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  background: white;
-  box-shadow: 0 2px 15px #e9dce233;
-  z-index: 10;
-}
+    .logo { color: var(--deep); font-size: 1.8rem; letter-spacing: 2px; font-weight: bold; }
+    nav { display: flex; gap: 25px; flex-wrap: wrap; }
+    nav a { font: .9rem Arial, sans-serif; }
+    nav a:hover { color: var(--rose); }
 
-.logo { font-size: 25px; letter-spacing: 3px; color: #a85e7e; }
+    .hero {
+      text-align: center;
+      padding: 75px 7%;
+      background: linear-gradient(135deg, white, #fff0f5, #f8dfe8);
+    }
 
-nav a {
-  color: #59444e;
-  text-decoration: none;
-  margin-left: 20px;
-  font-size: 13px;
-}
+    .eyebrow {
+      color: var(--rose);
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font: .75rem Arial, sans-serif;
+    }
 
-.hero {
-  text-align: center;
-  padding: 100px 8%;
-  background: #fceef3;
-}
+    h1 {
+      color: var(--deep);
+      font-size: clamp(2.7rem, 7vw, 5rem);
+      font-weight: normal;
+      line-height: 1.15;
+      margin: 15px 0;
+    }
 
-.label {
-  letter-spacing: 4px;
-  font-size: 11px;
-  color: #a85e7e;
-}
+    h2 { color: var(--deep); font-size: 2.3rem; font-weight: normal; }
+    .hero p { max-width: 650px; margin: 0 auto; font-size: 1.1rem; }
 
-h1 {
-  font-size: clamp(45px, 7vw, 75px);
-  color: #a85e7e;
-  font-weight: normal;
-  margin: 20px 0;
-}
+    .product-section {
+      padding: 75px 7%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 45px;
+      align-items: center;
+      max-width: 1200px;
+      margin: auto;
+    }
 
-.hero p {
-  max-width: 650px;
-  margin: auto;
-  line-height: 1.8;
-  font: 15px/1.8 Arial, sans-serif;
-  color: #816d77;
-}
+    .product-visual {
+      min-height: 330px;
+      border-radius: 20px;
+      background: linear-gradient(145deg, #fff5f8, #f3dce5);
+      display: grid;
+      place-items: center;
+      font-size: 7rem;
+      color: var(--rose);
+      box-shadow: 0 12px 35px #80556516;
+    }
 
-section { padding: 80px 9%; }
+    .product-copy p { margin: 15px 0; }
+    .product-copy ul { padding-left: 22px; margin: 15px 0 25px; }
+    .product-copy li { margin: 7px 0; }
 
-.product {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: 65px;
-  margin-bottom: 50px;
-}
+    .button {
+      display: inline-block;
+      background: var(--rose);
+      color: white;
+      padding: 12px 27px;
+      border-radius: 30px;
+      border: 1px solid var(--rose);
+      font: .9rem Arial, sans-serif;
+    }
 
-.product:nth-child(even) img { order: 2; }
+    .button:hover { background: var(--deep); border-color: var(--deep); }
 
-.product img {
-  width: 100%;
-  height: 430px;
-  object-fit: cover;
-}
+    .pink-section {
+      background: var(--blush);
+      padding: 70px 7%;
+      text-align: center;
+    }
 
-.product h2 {
-  font-size: 42px;
-  font-weight: normal;
-  color: #a85e7e;
-  margin: 15px 0;
-}
+    .pink-section p { max-width: 760px; margin: 15px auto; }
 
-.product p {
-  font: 15px/1.9 Arial, sans-serif;
-  color: #816d77;
-  margin-bottom: 15px;
-}
+    .closing {
+      text-align: center;
+      padding: 70px 7%;
+    }
 
-.product ul {
-  padding-left: 20px;
-  font: 14px/2 Arial, sans-serif;
-  color: #816d77;
-}
+    footer {
+      background: #f8e8ee;
+      color: var(--deep);
+      text-align: center;
+      padding: 35px 7%;
+    }
 
-.btn {
-  display: inline-block;
-  padding: 15px 27px;
-  background: #a85e7e;
-  color: white;
-  text-decoration: none;
-  margin-top: 25px;
-  border: none;
-  cursor: pointer;
-}
+    .chat-toggle {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 20;
+      border: 0;
+      border-radius: 30px;
+      padding: 13px 20px;
+      background: var(--deep);
+      color: white;
+      box-shadow: 0 5px 20px #80556544;
+    }
 
-.story {
-  background: #fceef3;
-  text-align: center;
-  padding: 70px 12%;
-}
+    .chat-box {
+      display: none;
+      position: fixed;
+      right: 22px;
+      bottom: 82px;
+      width: min(340px, calc(100vw - 30px));
+      z-index: 20;
+      background: white;
+      border: 1px solid #ead5de;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 35px #80556533;
+      font-family: Arial, sans-serif;
+    }
 
-.story h2 { font-size: 40px; font-weight: normal; color: #a85e7e; }
+    .chat-header { background: var(--deep); color: white; padding: 14px; }
+    .chat-messages { height: 230px; overflow-y: auto; padding: 14px; font-size: .9rem; }
+    .chat-messages p { margin-bottom: 12px; }
+    .chat-input { display: flex; border-top: 1px solid #f0e1e7; }
+    .chat-input input { flex: 1; min-width: 0; border: 0; padding: 13px; }
+    .chat-input button { border: 0; background: var(--rose); color: white; padding: 0 16px; }
 
-.story p {
-  max-width: 700px;
-  margin: 20px auto;
-  font: 15px/1.9 Arial, sans-serif;
-  color: #816d77;
-}
-
-footer {
-  background: #a85e7e;
-  color: white;
-  text-align: center;
-  padding: 40px;
-  line-height: 2;
-}
-
-.chat-button {
-  position: fixed;
-  bottom: 22px;
-  right: 22px;
-  background: #a85e7e;
-  color: white;
-  border: none;
-  padding: 16px 22px;
-  border-radius: 30px;
-  cursor: pointer;
-  z-index: 20;
-}
-
-.chat-window {
-  display: none;
-  position: fixed;
-  bottom: 85px;
-  right: 22px;
-  width: 320px;
-  background: white;
-  border: 1px solid #f5dce7;
-  box-shadow: 0 5px 30px #8d526322;
-  z-index: 20;
-}
-
-.chat-head { background: #a85e7e; color: white; padding: 18px; }
-
-.chat-messages {
-  height: 230px;
-  overflow-y: auto;
-  padding: 15px;
-  font: 13px/1.6 Arial, sans-serif;
-}
-
-.chat-messages p {
-  background: #fceef3;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 8px;
-}
-
-.chat-input { display: flex; border-top: 1px solid #f5dce7; }
-.chat-input input { width: 75%; padding: 12px; border: none; outline: none; }
-.chat-input button { width: 25%; background: #a85e7e; color: white; border: none; }
-
-@media(max-width:750px) {
-  nav { flex-direction: column; gap: 15px; }
-  .product { grid-template-columns: 1fr; gap: 25px; }
-  .product:nth-child(even) img { order: 0; }
-  .product img { height: 300px; }
-  section { padding: 55px 7%; }
-}
-</style>
+    @media (max-width: 700px) {
+      header { flex-direction: column; }
+      nav { justify-content: center; gap: 15px; }
+      .product-section { grid-template-columns: 1fr; padding: 50px 6%; }
+      .product-visual { min-height: 240px; }
+    }
+  </style>
 </head>
 
 <body>
+  <header>
+    <a class="logo" href="index.html">Belle Poudre</a>
+    <nav aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="products.html">Our Powders</a>
+      <a href="index.html#benefits">Why Belle Poudre</a>
+      <a href="index.html#quiz">Powder Match</a>
+      <a href="index.html#story">Our Story</a>
+    </nav>
+  </header>
 
-<nav>
-  <div class="logo">BELLE POUDRE</div>
-  <div>
-    <a href="index.html">Home</a>
-    <a href="#loose">Loose Powder</a>
-    <a href="#pressed">Pressed Powder</a>
-  </div>
-</nav>
+  <main>
+    <section class="hero">
+      <div class="eyebrow">The Belle Poudre Collection</div>
+      <h1>Powder Perfection</h1>
+      <p>Meet the two finishing essentials at the heart of Belle Poudre. Thoughtful simplicity, everyday elegance, and beauty in every detail.</p>
+    </section>
 
-<header class="hero">
-  <div class="label">THE BELLE POUDRE COLLECTION</div>
-  <h1>Powder Perfection.</h1>
-  <p>
-    Discover two everyday beauty essentials designed to
-    complete your makeup routine with a soft, polished finish.
-    Because every little detail matters.
-  </p>
-</header>
+    <section class="product-section" id="loose">
+      <div class="product-visual" aria-hidden="true">✧</div>
+      <div class="product-copy">
+        <div class="eyebrow">The First Essential</div>
+        <h2>Loose Setting Powder</h2>
+        <p>A finely milled finishing powder designed to help set makeup, soften the appearance of shine, and create a smooth-looking finish.</p>
+        <ul>
+          <li>Loose powder format</li>
+          <li>Designed for setting makeup</li>
+          <li>A finishing step for your beauty routine</li>
+          <li>Ideal for an at-home makeup application</li>
+        </ul>
+        <a class="button" href="index.html#quiz">Find Your Powder Match</a>
+      </div>
+    </section>
 
-<section>
+    <section class="product-section" id="pressed">
+      <div class="product-copy">
+        <div class="eyebrow">The Second Essential</div>
+        <h2>Pressed Setting Powder</h2>
+        <p>A compact finishing essential designed to help set your makeup and make touch-ups simple throughout the day.</p>
+        <ul>
+          <li>Pressed powder format</li>
+          <li>Convenient compact style</li>
+          <li>Easy to carry for on-the-go routines</li>
+          <li>A practical finishing step for your makeup look</li>
+        </ul>
+        <a class="button" href="index.html#quiz">Find Your Powder Match</a>
+      </div>
+      <div class="product-visual" aria-hidden="true">♡</div>
+    </section>
 
-  <div class="product" id="loose">
+    <section class="pink-section">
+      <div class="eyebrow">A Simple Beauty Philosophy</div>
+      <h2>Two Essentials. Endless Possibilities.</h2>
+      <p>At Belle Poudre, we believe the finishing touches matter. Our collection focuses on two versatile powder formats that bring a little extra elegance to your everyday beauty routine.</p>
+    </section>
 
-    <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=1000&q=85"
-         alt="Loose powder beauty inspiration">
+    <section class="closing">
+      <div class="eyebrow">Belle Poudre</div>
+      <h2>Beauty in Every Detail.</h2>
+      <p>Thank you for discovering our collection.</p>
+      <br>
+      <a class="button" href="index.html">Return to Home</a>
+    </section>
+  </main>
 
-    <div>
-      <div class="label">SIGNATURE PRODUCT 01</div>
-      <h2>Loose Setting Powder</h2>
+  <footer>
+    <div class="logo">Belle Poudre</div>
+    <p>Beauty in Every Detail.</p>
+    <p>© 2026 Belle Poudre. All rights reserved.</p>
+  </footer>
 
-      <p>
-        Meet your new finishing essential. Our loose powder
-        concept is designed for those who love a smooth,
-        soft-looking makeup finish.
-      </p>
+  <button class="chat-toggle" onclick="toggleChat()" aria-label="Open Beauty Assistant">♡ Beauty Assistant</button>
 
-      <ul>
-        <li>Designed to set foundation and concealer</li>
-        <li>Helps control unwanted shine</li>
-        <li>Creates a soft, polished appearance</li>
-        <li>Ideal for completing your makeup routine</li>
-      </ul>
-
-      <a href="index.html#products" class="btn">BACK TO COLLECTION</a>
+  <div class="chat-box" id="chat-box">
+    <div class="chat-header">
+      <strong>Belle Poudre Beauty Assistant</strong>
+      <div style="font-size:.8rem">Here to help with your powder questions.</div>
     </div>
-  </div>
-
-  <div class="product" id="pressed">
-
-    <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1000&q=85"
-         alt="Pressed powder beauty inspiration">
-
-    <div>
-      <div class="label">SIGNATURE PRODUCT 02</div>
-      <h2>Pressed Setting Powder</h2>
-
-      <p>
-        Your beauty routine, wherever life takes you.
-        Our pressed powder concept is designed for easy
-        application and convenient touch-ups.
-      </p>
-
-      <ul>
-        <li>Convenient compact format</li>
-        <li>Ideal for touch-ups throughout the day</li>
-        <li>Helps refresh your makeup appearance</li>
-        <li>A practical everyday beauty essential</li>
-      </ul>
-
-      <a href="index.html#products" class="btn">BACK TO COLLECTION</a>
+    <div class="chat-messages" id="chat-messages" aria-live="polite">
+      <p><strong>Assistant:</strong> Welcome back! Would you like to know more about our loose or pressed setting powder?</p>
     </div>
+    <form class="chat-input" onsubmit="sendMessage(event)">
+      <input id="chat-input" type="text" placeholder="Type your question..." aria-label="Your question">
+      <button type="submit">Send</button>
+    </form>
   </div>
 
-</section>
+  <script>
+    function toggleChat() {
+      const box = document.getElementById("chat-box");
+      box.style.display = box.style.display === "block" ? "none" : "block";
+    }
 
-<div class="story">
-  <div class="label">OUR PHILOSOPHY</div>
-  <h2>Beauty Should Feel Like You.</h2>
-  <p>
-    Belle Poudre was created around the idea that beauty
-    doesn't need to be complicated. With two essential
-    powder products, we celebrate simplicity, femininity,
-    confidence, and the little moments of self-care that
-    make every day feel special.
-  </p>
-</div>
+    function escapeHTML(value) {
+      return value.replace(/[&<>"']/g, character => ({
+        "&": "&amp;", "<": "&lt;", ">": "&gt;",
+        '"': "&quot;", "'": "&#039;"
+      })[character]);
+    }
 
-<footer>
-  <h2>BELLE POUDRE</h2>
-  <p>Beauty in Every Detail.</p>
-  <p>© 2026 Belle Poudre</p>
-  <p><a href="index.html" style="color:white">Return Home</a></p>
-</footer>
+    function sendMessage(event) {
+      event.preventDefault();
+      const input = document.getElementById("chat-input");
+      const messages = document.getElementById("chat-messages");
+      const question = input.value.trim().toLowerCase();
+      if (!question) return;
 
-<button class="chat-button" onclick="toggleChat()">♡ Beauty Assistant</button>
+      const userMessage = document.createElement("p");
+      userMessage.innerHTML = "<strong>You:</strong> " + escapeHTML(input.value);
+      messages.appendChild(userMessage);
 
-<div class="chat-window" id="chatWindow">
-  <div class="chat-head">
-    <strong>Belle Poudre Beauty Assistant</strong>
-    <p>We're happy to help!</p>
-  </div>
-  <div class="chat-messages" id="chatMessages">
-    <p>Welcome back! Would you like to know more about our powders?</p>
-  </div>
-  <div class="chat-input">
-    <input id="chatInput" placeholder="Ask us anything..."
-           onkeydown="if(event.key==='Enter')sendMessage()">
-    <button onclick="sendMessage()">Send</button>
-  </div>
-</div>
+      let answer = "Thanks for visiting Belle Poudre! Explore our two powder essentials and discover the finishing touch for your routine.";
 
-<script>
-function toggleChat() {
-  const chat = document.getElementById("chatWindow");
-  chat.style.display = chat.style.display === "block" ? "none" : "block";
-}
+      if (question.includes("loose")) {
+        answer = "Our Loose Setting Powder is designed to help set makeup and create a smooth-looking finish. It's a great format for your at-home routine.";
+      } else if (question.includes("pressed")) {
+        answer = "Our Pressed Setting Powder is a compact finishing essential, convenient for touch-ups throughout the day.";
+      } else if (question.includes("difference")) {
+        answer = "Loose powder is a free-flowing format often used when setting makeup. Pressed powder is compact and convenient for touch-ups.";
+      } else if (question.includes("price") || question.includes("cost")) {
+        answer = "Pricing has not been published on this demo website yet. Please check back for product launch updates.";
+      } else if (question.includes("hello") || question.includes("hi")) {
+        answer = "Hello, beauty! Welcome to Belle Poudre. How can I help you today?";
+      }
 
-function sendMessage() {
-  const input = document.getElementById("chatInput");
-  const messages = document.getElementById("chatMessages");
-  const question = input.value.trim().toLowerCase();
-
-  if (!question) return;
-
-  const user = document.createElement("p");
-  user.textContent = "You: " + input.value;
-  messages.appendChild(user);
-
-  let answer = "Thank you for visiting Belle Poudre! We have two signature products: loose setting powder and pressed setting powder.";
-
-  if (question.includes("loose")) {
-    answer = "Our loose powder is designed to set makeup and create a soft, smooth-looking finish.";
-  } else if (question.includes("pressed") || question.includes("compact")) {
-    answer = "Our pressed powder is designed for convenient touch-ups and a fresh-looking finish.";
-  } else if (question.includes("difference")) {
-    answer = "Loose powder is ideal for setting your makeup, while pressed powder is convenient for touch-ups.";
-  } else if (question.includes("price")) {
-    answer = "Pricing will be announced soon! Thank you for your interest in Belle Poudre.";
-  } else if (question.includes("hello") || question.includes("hi")) {
-    answer = "Hello, beauty! How can I help you discover your perfect powder?";
-  }
-
-  const reply = document.createElement("p");
-  reply.textContent = "Belle Poudre: " + answer;
-  messages.appendChild(reply);
-  input.value = "";
-  messages.scrollTop = messages.scrollHeight;
-}
-</script>
-
+      const reply = document.createElement("p");
+      reply.innerHTML = "<strong>Assistant:</strong> " + escapeHTML(answer);
+      messages.appendChild(reply);
+      messages.scrollTop = messages.scrollHeight;
+      input.value = "";
+    }
+  </script>
 </body>
 </html>
